@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 142 30% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 142 30% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 142 30% 20%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 45% 96%;
+    --secondary-foreground: 142 71% 25%;
+
+    --muted: 142 20% 96%;
+    --muted-foreground: 142 10% 45%;
+
+    --accent: 0 78% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 142 30% 90%;
+    --input: 142 30% 90%;
+    --ring: 142 71% 45%;
+
+    --radius: 0.75rem;
+
+    /* Brand specific colors */
+    --brand-green: 142 71% 45%;
+    --brand-green-light: 142 55% 65%;
+    --brand-green-dark: 142 71% 35%;
+    --brand-maroon: 0 78% 35%;
+    --brand-maroon-light: 0 65% 55%;
+    --brand-purple: 280 65% 55%;
+    --brand-teal: 180 70% 50%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(142 71% 45%) 0%, hsl(142 55% 55%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(0 78% 35%) 0%, hsl(0 65% 45%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px rgba(34, 139, 34, 0.1);
+    --shadow-medium: 0 8px 30px rgba(34, 139, 34, 0.15);
+    --shadow-strong: 0 12px 40px rgba(34, 139, 34, 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 142 30% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 142 25% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 142 25% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 25% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 142 20% 18%;
+    --muted-foreground: 142 15% 65%;
+
+    --accent: 0 78% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 142 20% 20%;
+    --input: 142 20% 20%;
+    --ring: 142 71% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  section {
+    @apply scroll-mt-20;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
+
+/* Touch device support - apply hover effects on tap */
+@media (hover: none) and (pointer: coarse) {
+  .group:active .group-hover\:scale-105,
+  .group:active .group-active\:scale-105 {
+    transform: scale(1.05);
+  }
+  
+  .hover\:shadow-strong:active,
+  .active\:shadow-strong:active {
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .hover\:border-primary:active,
+  .active\:border-primary:active {
+    border-color: hsl(142 71% 45%);
+  }
+}
