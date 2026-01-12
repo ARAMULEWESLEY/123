@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 import ProductCard from "./ProductCard";
-import sugarImg from "@/assets/n8.jpg";
-import unbrandedImg from "@/assets/n6.jpg";
+import unbrandedsugarImg from "@/assets/n8.jpg";
+import cheeseImg from "@/assets/cheese.jpeg";
 import gingerImg from "@/assets/ginger.jpg";
 import honeyImg from "@/assets/honey.jpg";
 import coffeeImg from "@/assets/coffee.jpg";
-import sugarSachetsImg from "@/assets/n6.jpg";
+import brandedhoneyImg from "@/assets/L8.jpg";
 import customBrandedImg from "@/assets/custom-branded-sachets.jpg";
 import { getProductRankings } from "@/hooks/useProductRankings";
 import { TrendingUp, Download } from "lucide-react";
@@ -29,7 +29,7 @@ const Products = () => {
       name: "Pure Honey",
       description: "100% natural honey, harvested from local beekeepers",
       price: "UGX 15,000",
-      image: sugarImg,
+      image: brandedhoneyImg,
     },
     {
       name: "Coffee Sachets",
@@ -41,13 +41,19 @@ const Products = () => {
       name: "Custom Branded Sachets",
       description: "Personalized sugar sachets with your business logo - minimum order 250 sachets",
       price: "UGX 60,000",
-      image: unbrandedImg,
+      image: unbrandedsugarImg,
     },
     {
       name: "Custom Branded Sachets",
       description: "Personalized sugar sachets with your business logo - minimum order 250 sachets",
       price: "UGX 60,000",
       image: customBrandedImg,
+    },
+    {
+      name: "Custom Branded Sachets",
+      description: "Personalized sugar sachets with your business logo - minimum order 250 sachets",
+      price: "UGX 60,000",
+      image: cheeseImg,
     },
   ];
 

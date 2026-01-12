@@ -3,15 +3,27 @@ import { X } from "lucide-react";
 import sugarImg from "@/assets/n1.jpg";
 import gingerImg from "@/assets/n2.jpg";
 import honeyImg from "@/assets/n4.jpg";
-import coffeeImg from "@/assets/p3.jpg";
 import teamImg from "@/assets/h2.jpg";
 import galleryA1 from "@/assets/a8.jpg";
 import galleryA2 from "@/assets/a7.jpg";
 import galleryC3 from "@/assets/a9.jpg";
 import galleryC4 from "@/assets/a2.jpg";
 import galleryD2 from "@/assets/a1.jpg";
-import galleryG3 from "@/assets/p7.jpg";
-import galleryH3 from "@/assets/p4.jpg";
+import gallery1 from "@/assets/h1.jpg";
+import gallery2 from "@/assets/h3.jpg";
+import gallery3 from "@/assets/h4.jpg";
+import gallery4 from "@/assets/h5.jpg";
+import gallery5 from "@/assets/g1.jpg";
+import gallery6 from "@/assets/g2.jpg";
+import gallery7 from "@/assets/g3.jpg";
+import gallery8 from "@/assets/g5.jpg";
+import gallery9 from "@/assets/g6.jpg";
+import gallery10 from "@/assets/c1.jpg";
+import gallery11 from "@/assets/c2.jpg";
+import gallery12 from "@/assets/c3.jpg";
+import gallery13 from "@/assets/c4.jpg";
+import gallery14 from "@/assets/c5.jpg";
+import gallery15 from "@/assets/c6.jpg";
 import { PremiumCarousel, PremiumCarouselSlide } from "@/components/ui/premium-carousel";
 
 const Gallery = () => {
@@ -24,14 +36,25 @@ const Gallery = () => {
     { src: galleryC3, alt: "Highland Arabica Coffee Box", description: "Close-up of Highland Arabica coffee box showing premium packaging." },
     { src: galleryC4, alt: "Coffee Sachets Arrangement", description: "Arranged coffee sachets demonstrating product variety." },
     { src: galleryD2, alt: "Fresh Product", description: "Freshly sourced natural products ready for packaging." },
-    { src: galleryG3, alt: "Ginger Immune Booster Box", description: "Box of ginger products that boost immunity and health." },
-    { src: galleryH3, alt: "Natural Bee Honey Box", description: "Premium natural bee honey in a beautifully designed box." },
     { src: sugarImg, alt: "Premium Sugar", description: "High-quality sugar sourced sustainably." },
     { src: gingerImg, alt: "Fresh Ginger", description: "Fresh ginger roots from local farms." },
     { src: honeyImg, alt: "Pure Honey", description: "Pure honey extracted naturally from our apiaries." },
-    { src: coffeeImg, alt: "Coffee Sachets", description: "Convenient coffee sachets for daily use." },
     { src: teamImg, alt: "Our Team", description: "Steadfast Enterprises team working together with passion." },
-  ];
+   { src: gallery7, alt: "Innovation at Steadfast", description: "Our team brainstorming the next generation of honey products." },
+    { src: gallery2, alt: "Steadfast Team Collaboration", description: "Precision and passion in every step of our process." },
+    { src: gallery12, alt: "Behind the Scenes", description: "Steadfast Enterprises team working together with passion." },
+    { src: gallery4, alt: "Quality Assurance", description: "Expert hands ensuring every sachet meets our gold standard." },
+    { src: gallery9, alt: "The Creative Process", description: "Where tradition meets modern product design." },
+    { src: gallery1, alt: "Our Collective Goal", description: "A shared vision for premium, natural wellness." },
+    { src: gallery15, alt: "Expert Logistics", description: "Meticulous attention to detail from the hive to your home." },
+    { src: gallery3, alt: "Team Culture", description: "Driven by a commitment to excellence and community." },
+    { src: gallery11, alt: "Research and Development", description: "Steadfast Enterprises team working together with passion." },
+    { src: gallery6, alt: "Steadfast Leadership", description: "Leading the industry with sustainable honey practices." },
+    { src: gallery13, alt: "Daily Operations", description: "The heartbeat of our production facility." },
+    { src: gallery5, alt: "Unity in Work", description: "Empowering our people to deliver their best." },
+    { src: gallery10, alt: "Packaging Precision", description: "Ensuring every sachet is a work of art." },
+    { src: gallery8, alt: "Shared Success", description: "Celebrating milestones together as a family." },
+    { src: gallery14, alt: "The Steadfast Standard", description: "Uncompromising quality in every single batch." }  ];
 
   const handleTouchStart = (index: number) => setTouchedIndex(index);
   const handleTouchEnd = () => setTouchedIndex(null);

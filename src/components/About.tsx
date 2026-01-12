@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Target, Users, Heart } from "lucide-react";
 import teamImg from "@/assets/a3.jpg";
 import teamMember1 from "@/assets/team-member-1.jpg";
@@ -31,31 +31,31 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: "Team Member",
+      name: "Alice Nakato",
       role: "Customer Support",
       description: "Always here to help our customers",
       image: teamMember4,
     },
     {
-      name: "Team Member",
+      name: "Brian Kato",
       role: "Operations",
       description: "Dedicated to quality and efficiency",
       image: teamMember1,
     },
     {
-      name: "Team Member",
+      name: "Clara Achieng",
       role: "Production",
       description: "Ensuring excellence in every product",
       image: teamMember2,
     },
     {
-      name: "Team Member",
+      name: "David Okello",
       role: "Logistics",
       description: "Reliable delivery and distribution",
       image: teamMember3,
     },
     {
-      name: "Team Member",
+      name: "Eva Nambassa",
       role: "Quality Control",
       description: "Maintaining the highest standards",
       image: teamMember5,
@@ -65,12 +65,46 @@ const About = () => {
   const handleTouchStart = (index: number) => setTouchedIndex(index);
   const handleTouchEnd = () => setTouchedIndex(null);
 
+  // JSON-LD structured data for organization + team
+  const structuredData = useMemo(() => {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Steadfast Enterprises Limited",
+      "url": window.location.origin,
+      "logo": window.location.origin + "/logo.png",
+      "description": "Steadfast Enterprises Limited produces premium natural products including sugar, ginger, honey, coffee, and mozzarella cheese. Deliveries across Uganda and East Africa.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kitetika-Gayaza Rd",
+        "addressLocality": "Mukono",
+        "addressRegion": "Central Region",
+        "addressCountry": "UG",
+      },
+      "sameAs": [
+        "https://www.facebook.com/steadfastenterprises",
+        "https://www.linkedin.com/company/steadfastenterprises",
+        "https://twitter.com/steadfast_ug"
+      ],
+      "employee": teamMembers.map((member) => ({
+        "@type": "Person",
+        "name": member.name,
+        "jobTitle": member.role,
+        "description": member.description,
+        "image": window.location.origin + member.image,
+      })),
+    };
+  }, [teamMembers]);
+
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 px-4">
+    <section id="about" className="py-12 sm:py-16 md:py-20 px-4" aria-labelledby="about-heading">
+      {/* JSON-LD script for SEO/AI */}
+      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-brand-maroon">
+          <h2 id="about-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-brand-maroon">
             About Steadfast Enterprises
           </h2>
           <p className="text-base sm:text-lg text-foreground max-w-2xl mx-auto px-4">
@@ -90,13 +124,10 @@ const About = () => {
           <div className="space-y-4 sm:space-y-6 animate-fade-in-up">
             <h3 className="text-2xl sm:text-3xl font-bold text-brand-maroon">Our Mission</h3>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              At Steadfast Enterprises Limited, we are committed to delivering premium natural products 
-              that enhance the lives of our customers. Based in Uganda, we take pride in sourcing the 
-              finest quality goods while supporting local communities and sustainable practices.
+              At Steadfast Enterprises Limited, we deliver premium natural products that enhance lives across Uganda and East Africa. We source the finest quality goods while supporting local communities and sustainable practices.
             </p>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Our dedication to excellence and customer satisfaction has made us a trusted name in 
-              the industry. We believe in creating lasting value through quality, integrity, and service.
+              Our dedication to excellence and customer satisfaction has made us a trusted name in the industry. We create lasting value through quality, integrity, and service.
             </p>
           </div>
         </div>
@@ -141,7 +172,6 @@ const About = () => {
                     onTouchEnd={handleTouchEnd}
                     onTouchCancel={handleTouchEnd}
                   >
-                    {/* Profile Image */}
                     <div className={`w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-4 sm:mb-6 rounded-full bg-muted overflow-hidden transition-transform duration-300 ${
                       touchedIndex === index ? 'scale-105' : ''
                     }`}>
@@ -152,11 +182,10 @@ const About = () => {
                       />
                     </div>
 
-                    {/* Name & Role (visible) */}
                     <h4 className="text-lg sm:text-xl font-bold mb-2 text-foreground">{member.name}</h4>
                     <p className="text-sm sm:text-base text-brand-maroon font-semibold mb-3">{member.role}</p>
 
-                    {/* Description (hidden for users, visible to AI/SEO) */}
+                    {/* Hidden for SEO/AI */}
                     <div className="sr-only" itemScope itemType="https://schema.org/Person">
                       <p itemProp="description">{member.description}</p>
                     </div>
