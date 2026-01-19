@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { Package, Trash2, ShoppingCart } from "lucide-react";
 import {
@@ -31,9 +30,13 @@ const Cart = ({ open, onClose }: CartProps) => {
     name: "",
     phone: "",
     address: "",
-    email: "",
   });
 
+  // Check if today is Friday
+  const today = new Date();
+  const isFriday = today.getDay() === 5; // 5 = Friday
+
+  // Calculate subtotal of cart items
   const calculateSubtotal = () => {
     return items.reduce((sum, item) => {
       const price = parseInt(item.price.replace(/[^0-9]/g, ""));
@@ -41,8 +44,12 @@ const Cart = ({ open, onClose }: CartProps) => {
     }, 0);
   };
 
+  // Calculate total with transport fee (free on Fridays)
   const calculateTotal = () => {
-    return calculateSubtotal() + TRANSPORT_FEE;
+    const subtotal = calculateSubtotal();
+    const transportFee = isFriday ? 0 : TRANSPORT_FEE;
+    console.log(`Transport fee applied: ${transportFee}`); // For testing
+    return subtotal + transportFee;
   };
 
   const formatPrice = (amount: number) => {
@@ -53,7 +60,6 @@ const Cart = ({ open, onClose }: CartProps) => {
     e.preventDefault();
 
     const subtotal = calculateSubtotal();
-    
     if (subtotal < MINIMUM_ORDER) {
       toast({
         title: "Minimum Order Not Met",
@@ -62,22 +68,19 @@ const Cart = ({ open, onClose }: CartProps) => {
       });
       return;
     }
-    
+
     const total = calculateTotal();
     const orderItems = items
-      .map(
-        (item) =>
-          `${item.name} x${item.quantity} - ${item.price} each`
-      )
+      .map((item) => `${item.name} x${item.quantity} - ${item.price} each`)
       .join("%0A");
 
     const totalFormatted = formatPrice(total);
-    
+
     const whatsappNumber = "+256756870718";
-    const message = `*New Order - Cash on Delivery*%0A%0A*Customer Details:*%0AName: ${formData.name}%0APhone: ${formData.phone}%0AAddress: ${formData.address}%0A%0A*Order Items:*%0A${orderItems}%0A%0ASubtotal: ${formatPrice(subtotal)}%0ATransport: ${formatPrice(TRANSPORT_FEE)}%0A*Total: ${totalFormatted}*%0A%0ACash on Delivery requested.`;
-    
+    const message = `*New Order - Cash on Delivery*%0A%0A*Customer Details:*%0AName: ${formData.name}%0APhone: ${formData.phone}%0AAddress: ${formData.address}%0A%0A*Order Items:*%0A${orderItems}%0A%0ASubtotal: ${formatPrice(subtotal)}%0ATransport: ${formatPrice(isFriday ? 0 : TRANSPORT_FEE)}%0A*Total: ${totalFormatted}*%0A%0ACash on Delivery requested.`;
+
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
-    
+
     toast({
       title: "Order Received! ✅",
       description: `${items.length} item(s) - ${totalFormatted}. We've opened WhatsApp to confirm your delivery details.`,
@@ -88,6 +91,14 @@ const Cart = ({ open, onClose }: CartProps) => {
     onClose();
   };
 
+  // Friday Sale Banner
+  const FridayBanner = () => (
+    <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-3 rounded mb-4">
+      🎉 <strong>Friday Sale:</strong> Free Transport Today!
+    </div>
+  );
+
+  // Checkout form view
   if (showCheckout) {
     return (
       <Sheet open={open} onOpenChange={onClose}>
@@ -98,6 +109,8 @@ const Cart = ({ open, onClose }: CartProps) => {
           </SheetHeader>
 
           <form onSubmit={handleSubmit} className="space-y-4 mt-6">
+            {isFriday && <FridayBanner />} {/* Banner only on Fridays */}
+
             <div className="space-y-2">
               <Label htmlFor="name">Full Name</Label>
               <Input
@@ -133,17 +146,6 @@ const Cart = ({ open, onClose }: CartProps) => {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="email">Email Address (Optional)</Label>
-              <Input
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="email@example.com"
-              />
-            </div>
-
             <div className="flex items-center gap-2 p-3 border rounded-lg bg-secondary/50">
               <Package className="h-5 w-5 text-accent" />
               <span className="font-medium">Payment on Delivery</span>
@@ -156,7 +158,7 @@ const Cart = ({ open, onClose }: CartProps) => {
               </div>
               <div className="flex justify-between text-sm text-muted-foreground">
                 <span>Transport:</span>
-                <span>{formatPrice(TRANSPORT_FEE)}</span>
+                <span>{isFriday ? "UGX 0 (Friday Special!)" : formatPrice(TRANSPORT_FEE)}</span>
               </div>
               <div className="flex justify-between text-lg font-semibold pt-2 border-t">
                 <span>Total:</span>
@@ -171,8 +173,13 @@ const Cart = ({ open, onClose }: CartProps) => {
                 >
                   Back
                 </Button>
-                <Button type="submit" className="flex-1">
+                <Button type="submit" className="flex-1 relative flex items-center justify-center">
                   Place Order
+                  {isFriday && (
+                    <span className="ml-2 bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">
+                      FREE TRANSPORT!
+                    </span>
+                  )}
                 </Button>
               </div>
             </div>
@@ -182,6 +189,7 @@ const Cart = ({ open, onClose }: CartProps) => {
     );
   }
 
+  // Cart overview
   return (
     <Sheet open={open} onOpenChange={onClose}>
       <SheetContent className="w-full sm:max-w-lg overflow-y-auto">
@@ -202,6 +210,8 @@ const Cart = ({ open, onClose }: CartProps) => {
           </div>
         ) : (
           <div className="mt-6 space-y-4">
+            {isFriday && <FridayBanner />} {/* Banner only on Fridays */}
+
             {items.map((item) => (
               <div key={item.name} className="flex gap-4 p-4 border rounded-lg">
                 <img
@@ -243,7 +253,7 @@ const Cart = ({ open, onClose }: CartProps) => {
               </div>
               <div className="flex justify-between text-sm text-muted-foreground">
                 <span>Transport:</span>
-                <span>{formatPrice(TRANSPORT_FEE)}</span>
+                <span>{isFriday ? "UGX 0 (Friday Special!)" : formatPrice(TRANSPORT_FEE)}</span>
               </div>
               <div className="flex justify-between text-lg font-semibold pt-2 border-t">
                 <span>Total:</span>
@@ -256,11 +266,16 @@ const Cart = ({ open, onClose }: CartProps) => {
               )}
               <Button
                 onClick={() => setShowCheckout(true)}
-                className="w-full"
+                className="w-full relative flex items-center justify-center"
                 size="lg"
                 disabled={calculateSubtotal() < MINIMUM_ORDER}
               >
                 Proceed to Checkout
+                {isFriday && (
+                  <span className="ml-2 bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">
+                    FREE TRANSPORT!
+                  </span>
+                )}
               </Button>
             </div>
           </div>

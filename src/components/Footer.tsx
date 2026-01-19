@@ -1,4 +1,4 @@
-import { Instagram, Twitter } from "lucide-react";
+import { Instagram, Twitter, Phone, Mail, MapPin } from "lucide-react";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg
@@ -21,9 +21,9 @@ const Footer = () => {
     "url": baseUrl,
     "logo": baseUrl + "/steadfast-logo.png",
     "sameAs": [
-      "https://www.instagram.com/yourprofile",
-      "https://www.twitter.com/yourprofile",
-      "https://www.tiktok.com/@yourprofile"
+      "https://www.instagram.com/steadfast_enterprises_limited/", // <-- Instagram URL
+      "https://x.com/steadfast_ent?t=7hfsZiIRRBWfwjhQXaiFhw&s=09", // <-- Twitter/X URL
+      "https://www.tiktok.com/@steadfastenterprises" // <-- TikTok URL
     ],
     "contactPoint": [
       {
@@ -35,7 +35,7 @@ const Footer = () => {
       },
       {
         "@type": "ContactPoint",
-        "email": "info@steadfastug.com",
+        "email": "steadfastenterpriseslimited@gmail.com",
         "contactType": "Customer Support",
         "areaServed": "UG",
         "availableLanguage": ["English"]
@@ -54,44 +54,119 @@ const Footer = () => {
     <footer className="bg-foreground text-background py-8 sm:py-10 md:py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+
+          {/* COMPANY INFO */}
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Steadfast Enterprises</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+              Steadfast Enterprises
+            </h3>
             <p className="text-background/80 text-sm">Creating Value</p>
           </div>
 
+          {/* QUICK LINKS */}
           <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</h4>
+            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+              Quick Links
+            </h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#products" className="text-background/80 hover:text-background transition-smooth">Products</a></li>
-              <li><a href="#about" className="text-background/80 hover:text-background transition-smooth">About Us</a></li>
-              <li><a href="#gallery" className="text-background/80 hover:text-background transition-smooth">Gallery</a></li>
-              <li><a href="#videos" className="text-background/80 hover:text-background transition-smooth">Videos</a></li>
-              <li><a href="#testimonials" className="text-background/80 hover:text-background transition-smooth">Customers</a></li>
-              <li><a href="#contact" className="text-background/80 hover:text-background transition-smooth">Contact</a></li>
+              {["Products","About Us","Gallery","Videos","Customers","Contact"].map(link => (
+                <li key={link}>
+                  <a
+                    href={`#${link.toLowerCase().replace(" ", "")}`}
+                    className="text-background/80 hover:text-background transition-smooth"
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* CONTACT INFO WITH ICONS */}
           <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Contact</h4>
-            <ul className="space-y-2 text-sm text-background/80">
-              <li>+256 7568 707 18</li>
-              <li>info@steadfastug.com</li>
-              <li>Kampala, Uganda</li>
+            <h4 className="font-semibold mb-4 text-base sm:text-lg">
+              Contact
+            </h4>
+            <ul className="space-y-4 text-base sm:text-lg text-background/90">
+
+              {/* Phone */}
+              <li className="flex items-center gap-4 group hover:translate-x-1 transition-all duration-300">
+                <Phone className="w-6 h-6 sm:w-7 sm:h-7 text-brand-maroon group-hover:scale-110 transition-transform" />
+                <a href="tel:+256756870718" className="font-medium text-background/90 hover:text-background">
+                  +256 7568 707 18
+                </a>
+              </li>
+
+              {/* Email */}
+              <li className="flex items-center gap-4 group hover:translate-x-1 transition-all duration-300">
+                <Mail 
+                  className="w-6 h-6 sm:w-7 sm:h-7 text-brand-maroon group-hover:scale-110 transition-transform" 
+                  strokeWidth={2} // ensures icon is visible
+                />
+                <a 
+                  href="mailto:steadfastenterpriseslimited@gmail.com" 
+                  className="font-medium text-background/90 hover:text-background"
+                >
+                  steadfastenterpriseslimited@gmail.com
+                </a>
+              </li>
+
+              {/* Address */}
+              <li className="flex items-center gap-4 group hover:translate-x-1 transition-all duration-300">
+                <MapPin className="w-6 h-6 sm:w-7 sm:h-7 text-brand-maroon group-hover:scale-110 transition-transform" />
+                <span className="font-medium">Kitetika-Gayaza Rd, Mukono</span>
+              </li>
+
             </ul>
           </div>
 
+          {/* SOCIAL MEDIA ICONS */}
           <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Follow Us</h4>
-            <div className="flex space-x-4">
-              <a href="#" className="text-background/80 hover:text-background transition-smooth"><TikTokIcon className="w-5 h-5" /></a>
-              <a href="#" className="text-background/80 hover:text-background transition-smooth"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="text-background/80 hover:text-background transition-smooth"><Twitter className="w-5 h-5" /></a>
+            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+              Follow Us
+            </h4>
+            <div className="flex space-x-5">
+
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/@steadfastenterprises" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
+              >
+                <TikTokIcon className="w-full h-full" />
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/steadfast_enterprises_limited" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
+              >
+                <Instagram className="w-full h-full" />
+              </a>
+
+              {/* Twitter/X */}
+              <a
+                href="https://x.com/steadfast_ent?t=7hfsZiIRRBWfwjhQXaiFhw&s=09" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
+              >
+                <Twitter className="w-full h-full" />
+              </a>
+
             </div>
           </div>
+
         </div>
 
+        {/* COPYRIGHT */}
         <div className="border-t border-background/20 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-background/80">
-          <p>&copy; {new Date().getFullYear()} Steadfast Enterprises Limited. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Steadfast Enterprises Limited. All rights reserved.
+          </p>
         </div>
 
         {/* JSON-LD for SEO & AI */}

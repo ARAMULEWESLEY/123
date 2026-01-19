@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import Cart from "./Cart";
-import coffeeSplash from "@/assets/coffee-splash.jpeg";
+import coffeeSplash from "@/assets/staff-serving-hot-ginger-coffee-and-honey-drinks-at-event.jpeg";
 import steadfastLogo from "@/assets/steadfast-logo.png";
 
 const Hero = () => {

@@ -10,5 +10,30 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# --- AI Crawlers ---
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Default rule
+
 User-agent: *
 Allow: /

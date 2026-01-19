@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -64,109 +69,48 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
+
+        /* 🔹 NEW: Mascot greeting fade */
         "fade-in": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(20px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "fade-in-up": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(30px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
+
+        /* 🔹 NEW: Daffy Duck wave */
+        wave: {
+          "0%": { transform: "rotate(0deg)" },
+          "20%": { transform: "rotate(12deg)" },
+          "40%": { transform: "rotate(-8deg)" },
+          "60%": { transform: "rotate(12deg)" },
+          "80%": { transform: "rotate(-4deg)" },
+          "100%": { transform: "rotate(0deg)" },
         },
-        "scale-in": {
-          "0%": {
-            opacity: "0",
-            transform: "scale(0.9)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "scale(1)",
-          },
-        },
-        "gradient-shift": {
-          "0%, 100%": {
-            "background-position": "0% 50%",
-          },
-          "50%": {
-            "background-position": "100% 50%",
-          },
-        },
-        "float": {
-          "0%, 100%": {
-            transform: "translateY(0px)",
-          },
-          "50%": {
-            transform: "translateY(-20px)",
-          },
-        },
-        "float-slow": {
-          "0%, 100%": {
-            transform: "translate(0, 0) scale(1)",
-          },
-          "33%": {
-            transform: "translate(30px, -30px) scale(1.1)",
-          },
-          "66%": {
-            transform: "translate(-20px, 20px) scale(0.9)",
-          },
-        },
-        "float-delayed": {
-          "0%, 100%": {
-            transform: "translate(0, 0) scale(1)",
-          },
-          "33%": {
-            transform: "translate(-40px, 30px) scale(0.9)",
-          },
-          "66%": {
-            transform: "translate(25px, -25px) scale(1.1)",
-          },
-        },
-        "float-slower": {
-          "0%, 100%": {
-            transform: "translate(0, 0) scale(1)",
-          },
-          "50%": {
-            transform: "translate(20px, 30px) scale(1.05)",
-          },
+
+        /* 🔹 Floating motion (already used by mascot) */
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+
+        /* 🔹 Greeting bubble */
         "fade-in": "fade-in 0.6s ease-out",
-        "fade-in-up": "fade-in-up 0.8s ease-out",
-        "scale-in": "scale-in 0.5s ease-out",
-        "gradient-shift": "gradient-shift 8s ease infinite",
-        "float": "float 6s ease-in-out infinite",
-        "float-slow": "float-slow 20s ease-in-out infinite",
-        "float-delayed": "float-delayed 25s ease-in-out infinite",
-        "float-slower": "float-slower 30s ease-in-out infinite",
+
+        /* 🔹 Mascot floating */
+        float: "float 6s ease-in-out infinite",
+
+        /* 🔹 Mascot wave */
+        wave: "wave 1s ease-in-out",
       },
     },
   },

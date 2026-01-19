@@ -1,29 +1,29 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import sugarImg from "@/assets/n1.jpg";
-import gingerImg from "@/assets/n2.jpg";
-import honeyImg from "@/assets/n4.jpg";
-import teamImg from "@/assets/h2.jpg";
-import galleryA1 from "@/assets/a8.jpg";
-import galleryA2 from "@/assets/a7.jpg";
-import galleryC3 from "@/assets/a9.jpg";
-import galleryC4 from "@/assets/a2.jpg";
-import galleryD2 from "@/assets/a1.jpg";
-import gallery1 from "@/assets/h1.jpg";
-import gallery2 from "@/assets/h3.jpg";
-import gallery3 from "@/assets/h4.jpg";
-import gallery4 from "@/assets/h5.jpg";
-import gallery5 from "@/assets/g1.jpg";
-import gallery6 from "@/assets/g2.jpg";
-import gallery7 from "@/assets/g3.jpg";
-import gallery8 from "@/assets/g5.jpg";
-import gallery9 from "@/assets/g6.jpg";
-import gallery10 from "@/assets/c1.jpg";
-import gallery11 from "@/assets/c2.jpg";
-import gallery12 from "@/assets/c3.jpg";
-import gallery13 from "@/assets/c4.jpg";
-import gallery14 from "@/assets/c5.jpg";
-import gallery15 from "@/assets/c6.jpg";
+import everydayProductUsage from "@/assets/everyday-use-of-ginger-coffee-and-honey-products.jpg";
+import brandedSugarSachetsAtEvent from "@/assets/branded-sugar-sachets-served-at-event.jpg";
+import brandedCoffeeSachetsEvent from "@/assets/branded-coffee-sachets-served-at-corporate-event.jpg";
+import mozzarellaCheeseHomeKitchen from "@/assets/mozzarella-cheese-used-in-home-kitchen.jpg";
+import brandedProductDisplayExpo from "@/assets/branded-sugar-coffee-ginger-and-honey-products-display-at-expo.jpg";
+import officeTeaBreakProducts from "@/assets/office-tea-break-using-branded-coffee-ginger-honey-sachets.jpg";
+import hospitalityIndustrySupply from "@/assets/hospitality-industry-supply-sugar-coffee-honey-ginger-and-mozzarella.jpg";
+import staffServingEvent from "@/assets/serving-clients-at-corporate-event-with-ginger-coffee-honey-products.jpg";
+import clientsEnjoyingProductsAtHome from "@/assets/customers-enjoying-ginger-and-honey-sachets-at-home.jpg";
+import corporateEventBeverageService from "@/assets/event-guests-enjoying-ginger-coffee-and-honey-drinks.jpg";
+import familyPreparingDrinksAtHome from "@/assets/staff-serving-hot-ginger-and-coffee-drinks-at-event.jpg";
+import exhibitionProductDisplay from "@/assets/ginger-coffee-honey-products-display-at-business-expo.jpg";
+import happyCustomersUsingProducts from "@/assets/happy-customers-using-ginger-and-honey-products.jpg";
+import eventGuestsEnjoyingDrinks from "@/assets/office-pantry-stocked-with-ginger-coffee-and-honey-sachets.jpg";
+import gingerDrinkPreparedAtHome from "@/assets/ginger-drink-prepared-at-home.jpg";
+import coffeeSachetsOfficeBreak from "@/assets/coffee-sachets-used-during-office-break.jpg";
+import mozzarellaCheeseFreshSlices from "@/assets/fresh-mozzarella-cheese-slices.jpg";
+import homeEveningTeaWithHoney from "@/assets/home-evening-tea-with-honey-and-ginger.jpg";
+import communityEventProductService from "@/assets/community-event-serving-sugar-coffee-ginger-and-honey.jpg";
+import qualityControlFoodProduction from "@/assets/quality-control-for-sugar-honey-coffee-ginger-and-mozzarella.jpg";
+import premiumClientFoodService from "@/assets/premium-client-food-service-with-sugar-coffee-honey-ginger.jpg";
+import productExperienceLifestyle from "@/assets/food-and-beverage-product-experience-lifestyle.jpg";
+import hospitalityServiceUsingProducts from "@/assets/hospitality-service-using-ginger-coffee-and-honey-products.jpg";
+import homeEveningTeaMoment from "@/assets/home-evening-tea-with-ginger-coffee-and-honey.jpg";
 import { PremiumCarousel, PremiumCarouselSlide } from "@/components/ui/premium-carousel";
 
 const Gallery = () => {
@@ -31,30 +31,30 @@ const Gallery = () => {
   const [touchedIndex, setTouchedIndex] = useState<number | null>(null);
 
   const images = [
-    { src: galleryA1, alt: "Product Collection - Honey, Coffee & Ginger", description: "A curated collection of our honey, coffee, and ginger products." },
-    { src: galleryA2, alt: "Full Product Range Display", description: "Display of the complete range of Steadfast Enterprises products." },
-    { src: galleryC3, alt: "Highland Arabica Coffee Box", description: "Close-up of Highland Arabica coffee box showing premium packaging." },
-    { src: galleryC4, alt: "Coffee Sachets Arrangement", description: "Arranged coffee sachets demonstrating product variety." },
-    { src: galleryD2, alt: "Fresh Product", description: "Freshly sourced natural products ready for packaging." },
-    { src: sugarImg, alt: "Premium Sugar", description: "High-quality sugar sourced sustainably." },
-    { src: gingerImg, alt: "Fresh Ginger", description: "Fresh ginger roots from local farms." },
-    { src: honeyImg, alt: "Pure Honey", description: "Pure honey extracted naturally from our apiaries." },
-    { src: teamImg, alt: "Our Team", description: "Steadfast Enterprises team working together with passion." },
-   { src: gallery7, alt: "Innovation at Steadfast", description: "Our team brainstorming the next generation of honey products." },
-    { src: gallery2, alt: "Steadfast Team Collaboration", description: "Precision and passion in every step of our process." },
-    { src: gallery12, alt: "Behind the Scenes", description: "Steadfast Enterprises team working together with passion." },
-    { src: gallery4, alt: "Quality Assurance", description: "Expert hands ensuring every sachet meets our gold standard." },
-    { src: gallery9, alt: "The Creative Process", description: "Where tradition meets modern product design." },
-    { src: gallery1, alt: "Our Collective Goal", description: "A shared vision for premium, natural wellness." },
-    { src: gallery15, alt: "Expert Logistics", description: "Meticulous attention to detail from the hive to your home." },
-    { src: gallery3, alt: "Team Culture", description: "Driven by a commitment to excellence and community." },
-    { src: gallery11, alt: "Research and Development", description: "Steadfast Enterprises team working together with passion." },
-    { src: gallery6, alt: "Steadfast Leadership", description: "Leading the industry with sustainable honey practices." },
-    { src: gallery13, alt: "Daily Operations", description: "The heartbeat of our production facility." },
-    { src: gallery5, alt: "Unity in Work", description: "Empowering our people to deliver their best." },
-    { src: gallery10, alt: "Packaging Precision", description: "Ensuring every sachet is a work of art." },
-    { src: gallery8, alt: "Shared Success", description: "Celebrating milestones together as a family." },
-    { src: gallery14, alt: "The Steadfast Standard", description: "Uncompromising quality in every single batch." }  ];
+    { src: brandedProductDisplayExpo, alt: "Product Collection - Honey, Coffee & Ginger", description: "A curated collection of our honey, coffee, and ginger products." },
+    { src: officeTeaBreakProducts, alt: "Full Product Range Display", description: "Display of the complete range of Steadfast Enterprises products." },
+    { src: hospitalityIndustrySupply, alt: "Highland Arabica Coffee Box", description: "Close-up of Highland Arabica coffee box showing premium packaging." },
+    { src: staffServingEvent, alt: "Coffee Sachets Arrangement", description: "Arranged coffee sachets demonstrating product variety." },
+    { src: clientsEnjoyingProductsAtHome, alt: "Fresh Product", description: "Freshly sourced natural products ready for packaging." },
+    { src: everydayProductUsage, alt: "Premium Sugar", description: "High-quality sugar sourced sustainably." },
+    { src: brandedSugarSachetsAtEvent, alt: "Fresh Ginger", description: "Fresh ginger roots from local farms." },
+    { src: brandedCoffeeSachetsEvent, alt: "Pure Honey", description: "Pure honey extracted naturally from our apiaries." },
+    { src: mozzarellaCheeseHomeKitchen, alt: "Our Team", description: "Steadfast Enterprises team working together with passion." },
+   { src: coffeeSachetsOfficeBreak, alt: "Innovation at Steadfast", description: "Our team brainstorming the next generation of honey products." },
+    { src: familyPreparingDrinksAtHome, alt: "Steadfast Team Collaboration", description: "Precision and passion in every step of our process." },
+    { src: premiumClientFoodService, alt: "Behind the Scenes", description: "Steadfast Enterprises team working together with passion." },
+    { src: happyCustomersUsingProducts, alt: "Quality Assurance", description: "Expert hands ensuring every sachet meets our gold standard." },
+    { src: homeEveningTeaWithHoney, alt: "The Creative Process", description: "Where tradition meets modern product design." },
+    { src: corporateEventBeverageService, alt: "Our Collective Goal", description: "A shared vision for premium, natural wellness." },
+    { src: homeEveningTeaMoment, alt: "Expert Logistics", description: "Meticulous attention to detail from the hive to your home." },
+    { src: exhibitionProductDisplay, alt: "Team Culture", description: "Driven by a commitment to excellence and community." },
+    { src: qualityControlFoodProduction, alt: "Research and Development", description: "Steadfast Enterprises team working together with passion." },
+    { src: gingerDrinkPreparedAtHome, alt: "Steadfast Leadership", description: "Leading the industry with sustainable honey practices." },
+    { src: productExperienceLifestyle, alt: "Daily Operations", description: "The heartbeat of our production facility." },
+    { src: eventGuestsEnjoyingDrinks, alt: "Unity in Work", description: "Empowering our people to deliver their best." },
+    { src: communityEventProductService, alt: "Packaging Precision", description: "Ensuring every sachet is a work of art." },
+    { src: mozzarellaCheeseFreshSlices, alt: "Shared Success", description: "Celebrating milestones together as a family." },
+    { src: hospitalityServiceUsingProducts, alt: "The Steadfast Standard", description: "Uncompromising quality in every single batch." }  ];
 
   const handleTouchStart = (index: number) => setTouchedIndex(index);
   const handleTouchEnd = () => setTouchedIndex(null);

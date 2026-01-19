@@ -61,7 +61,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground text-sm sm:text-base">Phone</p>
-                    <p className="text-muted-foreground text-sm sm:text-base">+256 700 000 000</p>
+                    <p className="text-muted-foreground text-sm sm:text-base">+256 756 870 718</p>
                   </div>
                 </div>
 
@@ -71,7 +71,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground text-sm sm:text-base">Email</p>
-                    <p className="text-muted-foreground text-sm sm:text-base">info@steadfastug.com</p>
+                    <p className="text-muted-foreground text-sm sm:text-base">steadfastenterpriseslimited@gmail.com</p>
                   </div>
                 </div>
 
@@ -81,7 +81,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground text-sm sm:text-base">Location</p>
-                    <p className="text-muted-foreground text-sm sm:text-base">Kampala, Uganda</p>
+                    <p className="text-muted-foreground text-sm sm:text-base">Kitetika-Gayaza Rd</p>
                   </div>
                 </div>
               </div>

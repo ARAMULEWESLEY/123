@@ -1,11 +1,8 @@
 import { useState, useMemo } from "react";
 import { Target, Users, Heart } from "lucide-react";
-import teamImg from "@/assets/a3.jpg";
-import teamMember1 from "@/assets/team-member-1.jpg";
-import teamMember2 from "@/assets/team-member-2.jpg";
-import teamMember3 from "@/assets/team-member-3.jpg";
-import teamMember4 from "@/assets/team-member-4.jpg";
-import teamMember5 from "@/assets/team-member-5.jpg";
+import teamImg from "@/assets/branded-sugar-sachets-used-in-catering-service.jpg";
+import team_lead_balikowa_edilisa_obama from "@/assets/team_lead_balikowa_edilisa_obama.jpg";
+import our_ceo_paul_ahura from "@/assets/our_ceo_paul_ahura.jpeg";
 import { PremiumCarousel, PremiumCarouselSlide } from "@/components/ui/premium-carousel";
 
 const About = () => {
@@ -30,36 +27,19 @@ const About = () => {
   ];
 
   const teamMembers = [
-    {
-      name: "Alice Nakato",
-      role: "Customer Support",
-      description: "Always here to help our customers",
-      image: teamMember4,
-    },
-    {
-      name: "Brian Kato",
-      role: "Operations",
-      description: "Dedicated to quality and efficiency",
-      image: teamMember1,
-    },
-    {
-      name: "Clara Achieng",
-      role: "Production",
-      description: "Ensuring excellence in every product",
-      image: teamMember2,
-    },
-    {
-      name: "David Okello",
-      role: "Logistics",
-      description: "Reliable delivery and distribution",
-      image: teamMember3,
-    },
-    {
-      name: "Eva Nambassa",
-      role: "Quality Control",
-      description: "Maintaining the highest standards",
-      image: teamMember5,
-    },
+     {
+name: "Paul Ahura",
+role: "Chief Executive Officer",
+description: "Leading Steadfast Enterprises with vision, integrity, and a commitment to excellence.",
+image: our_ceo_paul_ahura,
+},
+{
+name: "Balikowa Edilisa Obama",
+role: "Team Lead",
+description: "Dedicated to supporting our customers and ensuring seamless operations.",
+image: team_lead_balikowa_edilisa_obama,
+},
+
   ];
 
   const handleTouchStart = (index: number) => setTouchedIndex(index);

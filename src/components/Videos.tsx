@@ -6,11 +6,8 @@ import {
 } from "@/components/ui/premium-carousel";
 
 // 🎥 Local videos
-import overviewVideo from "@/assets/videos/va.mp4";
-import productVideo from "@/assets/videos/vc.mp4";
-import customersVideo from "@/assets/videos/vg.mp4";
-import myVideo from "@/assets/videos/vh.mp4";
-import sugarVideo from "@/assets/videos/vs.mp4";
+import overviewVideo from "@/assets/videos/branded-sugar-sachets-packaging-design.mp4";
+
 
 const Videos = () => {
   const videoRefs = useRef([]);
@@ -25,30 +22,6 @@ const Videos = () => {
       title: "Steadfast Enterprises Company Overview Video",
       description:
         "An overview video explaining Steadfast Enterprises, our mission, values, and long-term vision.",
-    },
-    {
-      src: productVideo,
-      title: "Steadfast Enterprises Product Showcase Video",
-      description:
-        "A detailed product showcase highlighting the quality, design, and functionality of Steadfast Enterprises products.",
-    },
-    {
-      src: customersVideo,
-      title: "Steadfast Enterprises Customer Testimonials",
-      description:
-        "Real customer stories and testimonials sharing their experience with Steadfast Enterprises services and products.",
-    },
-    {
-      src: myVideo,
-      title: "Behind the Scenes at Steadfast Enterprises",
-      description:
-        "A behind-the-scenes look at Steadfast Enterprises operations, team culture, and daily workflow.",
-    },
-    {
-      src: sugarVideo,
-      title: "Steadfast Enterprises Product Usage Demonstration",
-      description:
-        "A practical demonstration showing how Steadfast Enterprises products are used in real-life scenarios.",
     },
   ];
 
