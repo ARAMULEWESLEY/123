@@ -43,7 +43,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 md:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-brand-maroon">
-            Get In Touch
+            Book a Free Consultation
           </h2>
           <p className="text-base sm:text-lg text-foreground max-w-2xl mx-auto px-4">
             Have a question or suggestion? We'd love to hear from you
